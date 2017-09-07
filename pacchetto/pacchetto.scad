@@ -24,7 +24,7 @@ module pie_slice(r, start_angle, end_angle) {
 }
 
 module gancio(){
-    %linear_extrude(height = 30){
+    linear_extrude(height = 30){
 
         union(){
     translate([10.5,0,0])
@@ -59,12 +59,13 @@ module gancio(){
 }
 
 module calamita(){
- cylinder($fn=100,d=8.03,h=4.03, center = false);
+ cylinder($fn=100,d=8.10,h=4.13, center = false);
 }
 
 
 module pezzo(){
-    %linear_extrude(height = 28){
+    difference(){
+    linear_extrude(height = 28){
     translate([10.1,-26,0])
                 square(center = false,size = [4, 22] );
                 }
@@ -74,20 +75,20 @@ module pezzo(){
                 rotate([0,90,0]){
 
                                   calamita();
-                }  
+                }
+            }  
     }
     
 module portaCalamita(){
         difference(){
             translate([0,0,0.03])
-            %cylinder($fn=100,d=10,h=5.5, center = false);
+            cylinder($fn=100,d=10,h=5.5, center = false);
             calamita();
         }
     }
 
 
-translate([6,7,0])
- cylinder($fn=100,d=11,h=200, center = false);
+//translate([6,7,0])  cylinder($fn=100,d=11,h=200, center = false);
 
 
 gancio();

@@ -1,4 +1,4 @@
-
+$fn=100;
 difference(){
 difference(){
 cylinder(h=122,d=25,center=true);
