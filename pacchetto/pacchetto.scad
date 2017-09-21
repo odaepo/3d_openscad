@@ -33,7 +33,7 @@ module gancio(){
                 rotate([0,0,90])
                 
                 difference(){
-                pie_slice(8+spessore, -50, 180);
+                pie_slice(8+spessore, -90, 180);
                 pie_slice(8, -100, 250);
                 }
 
@@ -87,17 +87,28 @@ module portaCalamita(){
         }
     }
 
+module differenzaPerGancio(){
+    angolo=80;
+translate([23,18,0])
+rotate([0,0,150])
+    translate([0,0,15]){
+        rotate([0,45,0]){
+        rotate([0,angolo,0])cube([30,20,40]);
+        rotate([0,-angolo,0])cube([40,20,40]);
+        }
+    }
+
+}
 
 //translate([6,7,0])  cylinder($fn=100,d=11,h=200, center = false);
 
-
+//cube([30,10,30]);
+    difference(){
 gancio();
+differenzaPerGancio();
+}
 
-
-rotate([0,180,1800])    
-
-translate([-8.9,2.9,-29])
-pezzo();
+rotate([0,180,1800])translate([-8.9,2.9,-29])pezzo();
 
 
 
